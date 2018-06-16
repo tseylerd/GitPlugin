@@ -1,0 +1,40 @@
+{
+  "name": "Git Plugin",
+  "identifier": "com.gitplugin",
+  "version": "0.1.1",
+  
+  "compatibleVersion": 3,
+  "bundleVersion": 2,
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "Start",
+      "identifier": "start_id",
+      "script": "commands.cocoascript"
+    },
+    {
+      "name": "Stop",
+      "identifier": "stop_id",
+      "script": "commands.cocoascript"
+    },
+    {
+      "name": "Synchronize",
+      "identifier": "synchronize_id",
+      "script": "commands.cocoascript"
+    },
+    {
+      "name": "Publish",
+      "identifier": "publish_id",
+      "script": "commands.cocoascript"
+    }
+  ],
+  "menu": {
+    "title": "Git Plugin",
+    "items": [
+      "start_id",
+      "publish_id",
+      "synchronize_id",
+      "stop_id",
+    ]
+  }
+}

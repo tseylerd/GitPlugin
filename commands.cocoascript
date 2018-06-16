@@ -1,0 +1,23 @@
+var mocha = Mocha.sharedRuntime();
+var frameworkName = "GitPlugin";
+var directory = COScript.currentCOScript().env().scriptURL.path().stringByDeletingLastPathComponent();
+if (mocha.valueForKey(frameworkName)) {
+    log("loadFramework: `" + frameworkName + "` already loaded.");
+} 
+else if ([mocha loadFrameworkWithName:frameworkName inDirectory:directory]) {
+    log("loadFramework: `" + frameworkName + "` success!");
+    mocha.setValue_forKey_(true, frameworkName);
+} 
+else {
+    log("loadFramework: `" + frameworkName + "` failed!: " + directory);
+
+}
+
+function onRun(context) {
+    try {
+        [GitPlugin runCommand:context.document plugin: context.plugin command: context.command.identifier()];
+    }
+    catch (e) {
+        context.document.showMessage(e);
+    }
+}
